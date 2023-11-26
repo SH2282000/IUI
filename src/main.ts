@@ -1,27 +1,28 @@
 import './style.css'
-import javascriptLogo from '/javascript.svg'
-import lmuLogo from '/lmu.jpg'
-import { setupCounter } from './counter.js'
+import typescriptLogo from './typescript.svg'
+import lmjuLogo from '/lmu.jpg'
+import { setupCounter } from './counter.ts'
 
-document.querySelector('#app').innerHTML = `
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
-      <img src="${lmuLogo}" class="logo" alt="Vite logo" />
+      <img src="${lmjuLogo}" class="logo" alt="Vite logo" />
     </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
+    <a href="https://www.typescriptlang.org/" target="_blank">
+      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
     </a>
-    <h1>Hello Vite!</h1>
+    <h1>Vite + TypeScript</h1>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
     <p class="read-the-docs">
-      Click on the Vite logo to learn more
+      Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
 `
 
-// Dear colleagues, this is the 101 on how to make an AJAX call
+
+// make an AJAX call
 fetch("https://httpbin.org/post", {
   method: "POST",
   headers: {
@@ -44,11 +45,12 @@ fetch("https://httpbin.org/post", {
   });
 
 // and this is how to fade an element
-var buttonCounter = document.getElementById('counter').style;
+var buttonCounter = document.querySelector<HTMLButtonElement>('#counter')!.style;
 let currentOpacity = 0;
 function changeOpacity() {
-  buttonCounter.opacity = currentOpacity;
+  buttonCounter.opacity = currentOpacity.toString();
   currentOpacity = currentOpacity === 1 ? 0.3 : 1;
 }
 
-setupCounter(document.querySelector('#counter'))
+
+setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
