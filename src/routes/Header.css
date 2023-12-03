@@ -1,0 +1,37 @@
+.topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    border-bottom: 1px solid var(--black-10, rgba(28, 28, 28, 0.10));
+}
+
+.topbar menu {
+    display: flex;
+    list-style: none;
+    align-content: space-between;
+}
+
+.topbar menu li {
+    margin: 20px;
+}
+
+.logo_group {
+    display: flex;
+}
+
+.logo_group img {
+    padding: 5px;
+}
+
+.searchbox {
+    font-family: inherit;
+    font-size: inherit;
+    border: dashed 1px gray;
+    resize: none;
+    background-color: transparent;
+    border-radius: 15px;
+    padding: 10px;
+    margin: auto 0;
+}
