@@ -1,11 +1,11 @@
+import React from "react";
 import { Form } from "react-router-dom";
 import TopBar from "./Header";
 import { Config, TopLevelSpec, compile } from 'vega-lite';
 import embed from 'vega-embed';
 import './Dashboard.css'
-import { isLoess } from "vega-lite/build/src/transform";
 
-export default function Dashboard() {
+const Dashboard: React.FC = () => {
     const getRandomColor = () => `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.5)`;
     const infoCourse = {
         type: "Course",
@@ -36,7 +36,7 @@ const getRandomColor = () => `rgba(${56 + Math.floor(Math.random() * 200)},
 
 function CourseElement({ infoCourse }: any) {
     let favorite = infoCourse.favorite;
-    const changeColorInterval = setInterval(ChangeColor, 2000)
+    setInterval(ChangeColor, 2000)
     return (
         <div className="course-cardboard"
             style={{ backgroundColor: getRandomColor() }}
@@ -125,7 +125,6 @@ async function VegaGraphSpec() {
         encoding: {
             x: { field: 'a', type: 'quantitative', axis: { labelAngle: 0 } },
             y: { field: 'b', type: 'quantitative' },
-            interpolate: {field: 'monotone'}
         },
     };
 
@@ -136,8 +135,10 @@ async function VegaGraphSpec() {
     };
 
     const vegaSpec = compile(vegaLiteSpec, { config }).spec;
-    const result = await embed('#graph', vegaSpec, { renderer: "svg", actions: true, theme: 'carbonwhite'});
+    const result = await embed('#graph', vegaSpec, { renderer: "svg", actions: true});
 
     console.log(result.view);
     return result.view
 }
+
+export default Dashboard;

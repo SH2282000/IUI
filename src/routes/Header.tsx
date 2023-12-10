@@ -1,6 +1,7 @@
+import React from 'react';
 import './Header.css'
 
-export default function TopBar() {
+const TopBar: React.FC = () => {
     return (
         <header>
             <div className="topbar">
@@ -19,3 +20,5 @@ export default function TopBar() {
         </header>
     )
 }
+
+export default TopBar;

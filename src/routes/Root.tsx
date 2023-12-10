@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import TopBar from "./Header";
 import CredentialArea from "./CredentialArea";
 import './Root.css'
 
-export default function Login() {
+const Login: React.FC = () => {
     const [count, setCount] = useState(0)
 
     return (
@@ -37,3 +37,5 @@ export default function Login() {
         </>
     );
 }
+
+export default Login;
